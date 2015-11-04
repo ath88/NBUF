@@ -64,7 +64,7 @@ bool stringToBool(char *c) {
 
 int main(int argc, char* argv[]) {
     if(argc < 3) {
-        std::cout << "Please supply number of threads, memory limit and sequential execution bool" << std::endl;
+        std::cerr << "Please supply number of threads, memory limit and sequential execution bool" << std::endl;
         return 0;
     }
 
@@ -73,7 +73,7 @@ int main(int argc, char* argv[]) {
     config.available_megabytes = stoi(argv[2]);
     config.use_sequential_execution = stringToBool(argv[3]);
 
-    std::cout << "Starting nbuf" << std::endl;
+    std::cerr << "Starting nbuf" << std::endl;
 
     // RUNNING nbuf
     Nbuf nbuf;
