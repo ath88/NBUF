@@ -7,13 +7,16 @@ all: examples
 test: test_data test_scripts
 
 
-examples: bin/minmaxavgdisk bin/minmaxavgmemory
+examples: bin/minmaxavg bin/minmaxavgdisk bin/minmaxavgmemory
 
 bin/minmaxavgdisk: bin object/nbuf.o
 	$(CC) $(CFLAGS) $(LIBS) object/nbuf.o src/minmaxavgdisk.cpp -o $@
 
 bin/minmaxavgmemory: bin object/nbuf.o
 	$(CC) $(CFLAGS) $(LIBS) object/nbuf.o src/minmaxavgmemory.cpp -o $@
+
+bin/minmaxavg: bin object/nbuf.o
+	$(CC) $(CFLAGS) $(LIBS) object/nbuf.o src/minmaxavg.cpp -o $@
 
 bin:
 	mkdir $@
